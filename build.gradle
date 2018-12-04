@@ -1,0 +1,52 @@
+
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.3.12'
+}
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+group 'com.tt.str.clean'
+version '0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+intellij {
+    version '2018.12.04'
+    plugins = ['Kotlin', 'Groovy']
+    publish {
+        username 'shiraji'
+        password $password
+        pluginId '8349'
+    }
+}
+patchPluginXml {
+    changeNotes """
+      <html>
+        <b>0.1</b> (12/04/2018)
+        <ul>
+            <li>Add the selected text to string.xml file in Android project.</li>
+        </ul>
+    </html>"""
+}

@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.tt.str.clean.StrResClean</id>
+    <name>Add text to string.xml</name>
+    <vendor email="tuzhong7@gmail.com" url=""/>
+    <version>0.1</version>
+    <description><![CDATA[
+    Add the selected text to string.xml file in Android project </br>
+    And replace selected text by file type if need.</br>
+    For example: </br>
+    If the file type is "kotlin", replace selected text with "resources.getString(R.string.{$stringName})"
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <depends>com.intellij.modules.java</depends>
+
+    <change-notes><![CDATA[
+
+    ]]></change-notes>
+
+    <actions>
+        <!-- Add your actions here -->
+
+        <action class="com.tt.string.clean.action.CleanStringResAction" id="Clean" text="Add text to string.xml"
+                description="Add the selected text to string.xml file in Android project.">
+            <add-to-group group-id="EditMenu" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
