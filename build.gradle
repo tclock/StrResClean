@@ -36,9 +36,9 @@ intellij {
     version '2018.12.04'
     plugins = ['Kotlin', 'Groovy']
     publish {
-        username 'shiraji'
+        username $username
         password $password
-        pluginId '8349'
+        pluginId '11400'
     }
 }
 patchPluginXml {
