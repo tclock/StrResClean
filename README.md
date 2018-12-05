@@ -9,8 +9,8 @@ An android studio plugin that add text to string.xml
 
  - [download it](http://plugins.jetbrains.com/plugin/11400) and install via `Preferences→Plugins→Install plugin from disk`
 
-
-
+## How to use it:
+![pd](imgs/v.gif)
 
 ## License
 
