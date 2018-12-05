@@ -1,6 +1,17 @@
 # StrResClean
 An android studio plugin that add text to string.xml
 
+## How to install it:
+
+ - in Android Studio: go to `Preferences→Plugins→Browse repositories` and search for `add text to string.xml`
+
+ _or_
+
+ - [download it](http://plugins.jetbrains.com/plugin/11400) and install via `Preferences→Plugins→Install plugin from disk`
+
+
+
+
 ## License
 
 ```
