@@ -33,7 +33,7 @@ dependencies {
 }
 
 intellij {
-    version '2018.12.04'
+    version '2018.3'
     plugins = ['Kotlin', 'Groovy']
     publish {
         username $username
