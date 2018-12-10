@@ -2,7 +2,7 @@
     <id>com.tt.str.clean.StrResClean</id>
     <name>Add text to string.xml</name>
     <vendor email="tuzhong7@gmail.com" url=""/>
-    <version>0.1</version>
+    <version>0.2</version>
     <description><![CDATA[
     Add the selected text to string.xml file in Android project </br>
     And replace selected text by file type if need.</br>

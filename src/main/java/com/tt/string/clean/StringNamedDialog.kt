@@ -5,6 +5,7 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Document
+import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.module.ModuleUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ModuleRootManager
@@ -13,7 +14,6 @@ import com.intellij.psi.PsiFile
 import com.intellij.ui.JBColor
 import com.tt.string.clean.utils.*
 import org.apache.http.util.TextUtils
-import org.jetbrains.kotlin.idea.util.projectStructure.allModules
 import java.awt.Toolkit
 import java.awt.event.KeyEvent
 import java.awt.event.WindowAdapter
@@ -116,18 +116,24 @@ class StringNamedDialog(private val actionEvent: AnActionEvent) : JDialog() {
             val virtualFiles = if (module != null){
                 ModuleRootManager.getInstance(module).contentRoots
             }else {
-                ModuleRootManager.getInstance(it.allModules()[0]).contentRoots
+                ModuleRootManager.getInstance(ModuleManager.getInstance(it).modules[0]).contentRoots
             }
+            try {
+                val result = StringXmlFileUtils.addStringTag(this, it, virtualFiles, text, stringValueTextField.text)
 
-            StringXmlFileUtils.addStringTag(it, virtualFiles, text, stringValueTextField.text)
+                if(result){
+                    if (replaceSelectedTextCheckBox.isVisible && replaceSelectedTextCheckBox.isSelected) {
+                        replaceSelectedText(it, text)
+                    }
+                    dispose()
+                }
+            }catch (e: Exception){
 
-            if (replaceSelectedTextCheckBox.isVisible && replaceSelectedTextCheckBox.isSelected) {
-                replaceSelectedText(it, text)
             }
 
         }
 
-        dispose()
+
     }
 
 

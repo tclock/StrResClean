@@ -19,7 +19,7 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 
 group 'com.tt.str.clean'
-version '0.1-SNAPSHOT'
+version '0.2-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -33,13 +33,13 @@ dependencies {
 }
 
 intellij {
-    version '2018.12.04'
+    version '2018.1.6'
     plugins = ['Kotlin', 'Groovy']
-    publish {
-        username $username
-        password $password
-        pluginId '11400'
-    }
+//    publish {
+//        username $username
+//        password $password
+//        pluginId '11400'
+//    }
 }
 patchPluginXml {
     changeNotes """
